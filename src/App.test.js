@@ -23,12 +23,20 @@ describe("word change component", () => {
     );
   });
 
+  test("renders submit button", () => {
+    expect(wrapper.find("#btn").text()).toBe("Update");
+  });
+
   test("renders state change on input change and updates div when click button", () => {
     wrapper.find("#word-input").simulate("change", {
       target: {
         value: "word",
       },
     });
+    console.log(wrapper.state());
+    wrapper.find("#btn").simulate("click");
+    console.log(wrapper.state());
+
     expect(wrapper.find("#your-word").text()).toBe("word");
   });
 });
