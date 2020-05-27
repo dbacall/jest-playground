@@ -23,16 +23,14 @@ describe("word change component with hooks", () => {
     expect(wrapper.find("#btn").text()).toBe("Update");
   });
 
-  // test("renders state change on input change and updates div when click button", () => {
-  //   wrapper.find("#word-input").simulate("change", {
-  //     target: {
-  //       value: "word",
-  //     },
-  //   });
-  //   console.log(wrapper.state());
-  //   wrapper.find("#btn").simulate("click");
-  //   console.log(wrapper.state());
+  test("renders state change on input change and updates div when click button", () => {
+    wrapper.find("#word-input").simulate("change", {
+      target: {
+        value: "word",
+      },
+    });
+    wrapper.find("#btn").simulate("click");
 
-  //   expect(wrapper.find("#your-word").text()).toBe("word");
-  // });
+    expect(wrapper.find("#your-word").text()).toBe("word");
+  });
 });
