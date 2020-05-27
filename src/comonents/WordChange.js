@@ -11,11 +11,11 @@ function WordChange() {
         // value={this.state.inputWord}
         // onChange={this.handleChange}
       />
-      {/* <button type="submit" id="btn" onClick={this.handleSubmit}>
+      <button type="submit" id="btn">
         Update
       </button>
 
-      <div id="your-word">{this.state.updatedWord}</div> */}
+      {/* <div id="your-word">{this.state.updatedWord}</div> */}
     </div>
   );
 }

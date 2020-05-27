@@ -19,9 +19,9 @@ describe("word change component with hooks", () => {
     );
   });
 
-  // test("renders submit button", () => {
-  //   expect(wrapper.find("#btn").text()).toBe("Update");
-  // });
+  test("renders submit button", () => {
+    expect(wrapper.find("#btn").text()).toBe("Update");
+  });
 
   // test("renders state change on input change and updates div when click button", () => {
   //   wrapper.find("#word-input").simulate("change", {
