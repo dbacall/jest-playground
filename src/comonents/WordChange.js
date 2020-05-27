@@ -4,6 +4,10 @@ function WordChange() {
   const [inputWord, setInputWord] = useState("");
   const [updatedWord, setUpdatedWord] = useState("");
 
+  function handleChange(e) {
+    setInputWord(e.target.value);
+  }
+
   return (
     <div className="App">
       <h1>Crazy Word Changer!!</h1>
@@ -12,9 +16,10 @@ function WordChange() {
         placeholder="Your word..."
         id="word-input"
         value={inputWord}
-        onChange={(e) => {
-          setInputWord(e.target.value);
-        }}
+        // onChange={(e) => {
+        //   setInputWord(e.target.value);
+        // }}
+        onChange={handleChange}
       />
       <button type="submit" id="btn" onClick={() => setUpdatedWord(inputWord)}>
         Update

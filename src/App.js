@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import WordChange from "./comonents/WordChange";
 
 class App extends Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <WordChange />
         <h1>Crazy Word Changer!!</h1>
         <input
           type="text"
