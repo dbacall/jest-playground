@@ -43,4 +43,9 @@ describe("multiple word input with hooks", () => {
 
     expect(wrapper.find("p").text()).toBe("first, second");
   });
+
+  test("renders 3 words", () => {
+    wrapper.setState({ printedWords: ["first", "second", "third"] });
+    expect(wrapper.find("p").text()).toBe("first, second, third");
+  });
 });
