@@ -16,4 +16,8 @@ describe("multiple word input with hooks", () => {
     expect(wrapper.find(".input").prop("placeholder")).toBe("Your word...");
     expect(wrapper.find(".input").prop("value")).toBe("");
   });
+
+  test("renders button", () => {
+    expect(wrapper.find("button").text()).toBe("Add");
+  });
 });

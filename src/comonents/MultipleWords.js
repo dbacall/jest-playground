@@ -10,6 +10,7 @@ function MultipleWords() {
         className="input"
         value=""
       />
+      <button>Add</button>
     </div>
   );
 }
