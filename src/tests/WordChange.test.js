@@ -1,5 +1,5 @@
 import React from "react";
-import WordChange from "../comonents/WordChange";
+import WordChange from "../components/WordChange";
 import { shallow } from "enzyme";
 
 let wrapper;

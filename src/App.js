@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import WordChange from "./comonents/WordChange";
+import WordChange from "./components/WordChange";
 
 class App extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class App extends Component {
     this.setState({ inputWord: event.target.value });
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = () => {
     this.setState({
       updatedWord: this.state.inputWord,
     });

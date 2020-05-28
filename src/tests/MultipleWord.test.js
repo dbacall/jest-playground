@@ -1,7 +1,8 @@
 import React from "react";
-import MultipleWord from "../comonents/MultipleWords";
 import { shallow } from "enzyme";
+import MultipleWord from "../components/MultipleWords";
 
+// eslint-disable-next-line no-undef
 describe("multiple word input with hooks", () => {
   let wrapper;
   beforeEach(() => {
@@ -39,7 +40,7 @@ describe("multiple word input with hooks", () => {
       target: { value: "second" },
     });
     wrapper.find("button").simulate("click");
-    console.log("here", wrapper.state());
+    console.log("here", /\d/.test("hel4"));
 
     expect(wrapper.find("p").text()).toBe("first, second");
   });
