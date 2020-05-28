@@ -5,7 +5,7 @@ class MultipleWords extends Component {
     super(props);
     this.state = {
       inputWord: "",
-      printedWords: "",
+      printedWords: [],
     };
   }
 
@@ -17,7 +17,8 @@ class MultipleWords extends Component {
 
   handleSubmit = () => {
     this.setState({
-      printedWords: this.state.inputWord,
+      printedWords: this.state.printedWords.concat(this.state.inputWord),
+      inputWord: "",
     });
   };
 
@@ -33,7 +34,7 @@ class MultipleWords extends Component {
           onChange={this.handleChange}
         />
         <button onClick={this.handleSubmit}>Add</button>
-        <p>{this.state.printedWords}</p>
+        <p>{this.state.printedWords.join(", ")}</p>
       </div>
     );
   }

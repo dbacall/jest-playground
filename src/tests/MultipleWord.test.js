@@ -26,7 +26,21 @@ describe("multiple word input with hooks", () => {
       target: { value: "first" },
     });
     wrapper.find("button").simulate("click");
-    console.log("here", wrapper.state());
     expect(wrapper.find("p").text()).toBe("first");
+  });
+
+  test("renders two words when added", () => {
+    wrapper.find("input").simulate("change", {
+      target: { value: "first" },
+    });
+    wrapper.find("button").simulate("click");
+    expect(wrapper.find(".input").prop("value")).toBe("");
+    wrapper.find("input").simulate("change", {
+      target: { value: "second" },
+    });
+    wrapper.find("button").simulate("click");
+    console.log("here", wrapper.state());
+
+    expect(wrapper.find("p").text()).toBe("first, second");
   });
 });
