@@ -16,9 +16,6 @@ function WordChange() {
         placeholder="Your word..."
         id="word-input"
         value={inputWord}
-        // onChange={(e) => {
-        //   setInputWord(e.target.value);
-        // }}
         onChange={handleChange}
       />
       <button type="submit" id="btn" onClick={() => setUpdatedWord(inputWord)}>
