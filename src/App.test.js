@@ -29,9 +29,7 @@ describe("word change component", () => {
         value: "word",
       },
     });
-    console.log(wrapper.state());
     wrapper.find("#btn").simulate("click");
-    console.log(wrapper.state());
 
     expect(wrapper.find("#your-word").text()).toBe("word");
   });
