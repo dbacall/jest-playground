@@ -20,4 +20,13 @@ describe("multiple word input with hooks", () => {
   test("renders button", () => {
     expect(wrapper.find("button").text()).toBe("Add");
   });
+
+  test("renders one word when added", () => {
+    wrapper.find("input").simulate("change", {
+      target: { value: "first" },
+    });
+    wrapper.find("button").simulate("click");
+    console.log("here", wrapper.state());
+    expect(wrapper.find("p").text()).toBe("first");
+  });
 });
