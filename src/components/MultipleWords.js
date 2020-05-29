@@ -1,11 +1,12 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState } from 'react';
 
 class MultipleWords extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputWord: "",
+      inputWord: '',
       printedWords: [],
+      error: '',
     };
   }
 
@@ -16,10 +17,16 @@ class MultipleWords extends Component {
   };
 
   handleSubmit = () => {
-    this.setState({
-      printedWords: this.state.printedWords.concat(this.state.inputWord),
-      inputWord: "",
-    });
+    if (/\d/.test(this.state.inputWord)) {
+      this.setState({
+        error: 'No numbers allowed.',
+      });
+    } else {
+      this.setState({
+        printedWords: this.state.printedWords.concat(this.state.inputWord),
+        inputWord: '',
+      });
+    }
   };
 
   render() {
@@ -33,8 +40,9 @@ class MultipleWords extends Component {
           value={this.state.inputWord}
           onChange={this.handleChange}
         />
+        <p id="error">{this.state.error}</p>
         <button onClick={this.handleSubmit}>Add</button>
-        <p>{this.state.printedWords.join(", ")}</p>
+        <p id="words">{this.state.printedWords.join(', ')}</p>
       </div>
     );
   }
