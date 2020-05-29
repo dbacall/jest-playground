@@ -7,7 +7,6 @@ import MultipleWord from '../components/MultipleWords';
 describe('multiple word input with hooks', () => {
   let wrapper;
   beforeEach(() => {
-    // eslint-disable-next-line react/jsx-filename-extension
     wrapper = shallow(<MultipleWord />);
   });
 
@@ -42,7 +41,6 @@ describe('multiple word input with hooks', () => {
       target: { value: 'second' },
     });
     wrapper.find('button').simulate('click');
-    console.log('here', /\d/.test('hel4'));
 
     expect(wrapper.find('#words').text()).toBe('first, second');
   });
