@@ -57,4 +57,10 @@ describe('multiple word input with hooks', () => {
     wrapper.find('button').simulate('click');
     expect(wrapper.find('#error').text()).toBe('No numbers allowed.');
   });
+
+  test('handleSubmit creates error', () => {
+    wrapper.setState({ inputWord: '34fg' });
+    wrapper.instance().handleSubmit();
+    expect(wrapper.state('error')).toBe('No numbers allowed.');
+  });
 });
