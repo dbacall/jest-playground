@@ -1,13 +1,13 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import { shallow } from 'enzyme';
-import MultipleWord from '../components/MultipleWords';
+import MultipleWords from '../components/MultipleWords';
 
 // eslint-disable-next-line no-undef
 describe('multiple word input with hooks', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<MultipleWord />);
+    wrapper = shallow(<MultipleWords />);
   });
 
   test('renders title', () => {
@@ -27,7 +27,9 @@ describe('multiple word input with hooks', () => {
     wrapper.find('input').simulate('change', {
       target: { value: 'first' },
     });
-    wrapper.find('button').simulate('click');
+    wrapper.find('form').simulate('submit', {
+      preventDefault: () => {},
+    });
     expect(wrapper.find('#words').text()).toBe('first');
   });
 
@@ -35,12 +37,16 @@ describe('multiple word input with hooks', () => {
     wrapper.find('input').simulate('change', {
       target: { value: 'first' },
     });
-    wrapper.find('button').simulate('click');
+    wrapper.find('form').simulate('submit', {
+      preventDefault: () => {},
+    });
     expect(wrapper.find('.input').prop('value')).toBe('');
     wrapper.find('input').simulate('change', {
       target: { value: 'second' },
     });
-    wrapper.find('button').simulate('click');
+    wrapper.find('form').simulate('submit', {
+      preventDefault: () => {},
+    });
 
     expect(wrapper.find('#words').text()).toBe('first, second');
   });
@@ -54,13 +60,17 @@ describe('multiple word input with hooks', () => {
     wrapper.find('input').simulate('change', {
       target: { value: 'fi78' },
     });
-    wrapper.find('button').simulate('click');
+    wrapper.find('form').simulate('submit', {
+      preventDefault: () => {},
+    });
     expect(wrapper.find('#error').text()).toBe('No numbers allowed.');
   });
 
   test('handleSubmit creates error', () => {
     wrapper.setState({ inputWord: '34fg' });
-    wrapper.instance().handleSubmit();
+    wrapper.instance().handleSubmit({
+      preventDefault: () => {},
+    });
     expect(wrapper.state('error')).toBe('No numbers allowed.');
   });
 });

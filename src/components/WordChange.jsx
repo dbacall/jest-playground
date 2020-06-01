@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 function WordChange() {
-  const [inputWord, setInputWord] = useState("");
-  const [updatedWord, setUpdatedWord] = useState("");
+  const [inputWord, setInputWord] = useState('');
+  const [updatedWord, setUpdatedWord] = useState('');
 
   function handleChange(e) {
     setInputWord(e.target.value);

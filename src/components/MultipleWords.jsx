@@ -16,7 +16,8 @@ class MultipleWords extends Component {
     });
   };
 
-  handleSubmit = () => {
+  handleSubmit = (e) => {
+    e.preventDefault();
     const { inputWord, printedWords } = this.state;
     if (/\d/.test(inputWord)) {
       this.setState({
@@ -35,17 +36,17 @@ class MultipleWords extends Component {
     return (
       <div>
         <h1>Add many words!</h1>
-        <input
-          type="text"
-          placeholder="Your word..."
-          className="input"
-          value={inputWord}
-          onChange={this.handleChange}
-        />
-        <p id="error">{error}</p>
-        <button type="button" onClick={this.handleSubmit}>
-          Add
-        </button>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            placeholder="Your word..."
+            className="input"
+            value={inputWord}
+            onChange={this.handleChange}
+          />
+          <p id="error">{error}</p>
+          <button type="button">Add</button>
+        </form>
         <p id="words">{printedWords.join(', ')}</p>
       </div>
     );
