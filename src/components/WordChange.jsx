@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-function WordChange() {
+function WordChange({ intro }) {
   const [inputWord, setInputWord] = useState('');
   const [updatedWord, setUpdatedWord] = useState('');
 
@@ -11,6 +12,7 @@ function WordChange() {
   return (
     <div className="App">
       <h1>Crazy Word Changer!!</h1>
+      <p id="intro">{intro}</p>
       <input
         type="text"
         placeholder="Your word..."
@@ -26,5 +28,13 @@ function WordChange() {
     </div>
   );
 }
+
+WordChange.propTypes = {
+  intro: PropTypes.string,
+};
+
+WordChange.defaultProps = {
+  intro: 'oh herroooo',
+};
 
 export default WordChange;

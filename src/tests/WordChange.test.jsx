@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import { shallow } from 'enzyme';
 import WordChange from '../components/WordChange';
@@ -11,6 +12,12 @@ beforeEach(() => {
 describe('word change component with hooks', () => {
   test('render shows heading', () => {
     expect(wrapper.find('h1').text()).toContain('Crazy Word Changer!!');
+  });
+
+  test('renders intro prop', () => {
+    const intro = 'Welcome to the incredible word changing machine.';
+    wrapper = shallow(<WordChange intro={intro} />);
+    expect(wrapper.find('#intro').text()).toMatch(intro);
   });
 
   test('renders input for word', () => {
