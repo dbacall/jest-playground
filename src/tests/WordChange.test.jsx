@@ -10,7 +10,7 @@ beforeEach(() => {
 });
 
 describe('word change component with hooks', () => {
-  test('render shows heading', () => {
+  test('render shows h1', () => {
     expect(wrapper.find('h1').text()).toContain('Crazy Word Changer!!');
   });
 
